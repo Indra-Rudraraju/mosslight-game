@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A tiny, glowing arcade game about bringing a little life back to the universe."
+    />
+    <meta name="theme-color" content="#10151d" />
+    <title>Mosslight — a tiny cosmic garden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="Mosslight home">
+          <span class="brand-mark" aria-hidden="true">✳</span>
+          <span>little worlds studio</span>
+        </a>
+        <div class="topbar-note"><span class="live-dot"></span> A small game for a softer universe</div>
+        <a class="about-link" href="#how-to-play">HOW TO PLAY <span aria-hidden="true">↘</span></a>
+      </header>
+
+      <section class="intro" aria-labelledby="game-title">
+        <div class="eyebrow"><span>01</span><i></i> A COSMIC ARCADE GARDEN</div>
+        <h1 id="game-title">A little <span>light</span><br />goes a long way.</h1>
+        <p class="intro-copy">
+          The universe got quiet. Gather the lost starlight, dodge the sleepy shadows,
+          and help this tiny planet bloom again.
+        </p>
+      </section>
+
+      <section class="game-frame" aria-label="Mosslight game">
+        <div class="game-toolbar">
+          <div class="world-label"><span class="world-icon">✳</span><span>THE LITTLE ELSEWHERE</span></div>
+          <div class="toolbar-stats">
+            <div class="stat"><span class="stat-label">STARDUST</span><strong id="score">000</strong></div>
+            <div class="stat"><span class="stat-label">TIME LEFT</span><strong id="timer">60</strong></div>
+            <button id="sound-toggle" class="icon-button" type="button" aria-label="Turn sound off" title="Toggle sound">♫</button>
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="game" aria-label="Game field. Use arrow keys or WASD to move, and space to pulse."></canvas>
+          <div class="screen screen-start" id="start-screen">
+            <div class="orbit-art" aria-hidden="true"><span class="orbit-star">✳</span><span class="orbit-dot"></span></div>
+            <div class="screen-kicker">A ONE-MINUTE MINI ADVENTURE</div>
+            <h2>Wake the garden.</h2>
+            <p>Collect the little lights. Give the shadows a gentle nudge.</p>
+            <button class="primary-button" id="start-button" type="button">Let’s wander <span>↗</span></button>
+            <div class="screen-hint">NO DOWNLOAD · JUST A LITTLE WONDER</div>
+          </div>
+          <div class="screen screen-end hidden" id="end-screen">
+            <div class="end-icon" aria-hidden="true">✺</div>
+            <div class="screen-kicker" id="end-kicker">THE GARDEN REMEMBERS</div>
+            <h2 id="end-title">Look what you grew.</h2>
+            <p id="end-copy">Every little light made a difference.</p>
+            <form id="score-form" class="score-form">
+              <label for="player-name">Leave your name in the stars</label>
+              <div class="name-submit">
+                <input id="player-name" name="name" maxlength="16" placeholder="Your name" autocomplete="nickname" required />
+                <button class="primary-button" type="submit">Save score <span>↗</span></button>
+              </div>
+              <div class="save-message" id="save-message" aria-live="polite"></div>
+            </form>
+            <button class="play-again" id="play-again" type="button">↻ &nbsp; Wander again</button>
+          </div>
+          <div class="pause-pill hidden" id="pause-pill">PAUSED · PRESS P TO RETURN</div>
+        </div>
+        <div class="game-footer">
+          <div class="control-legend" id="how-to-play">
+            <span class="control-item"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>move</span></span>
+            <span class="control-item"><kbd>SPACE</kbd><span>starlight pulse</span></span>
+            <span class="control-item"><kbd>P</kbd><span>pause</span></span>
+          </div>
+          <div class="touch-note">TOUCH &amp; DRAG TO MOVE · DOUBLE-TAP TO PULSE</div>
+          <div class="pulse-status"><span class="pulse-symbol">✳</span><span id="pulse-label">PULSE READY</span><span class="pulse-track"><i id="pulse-fill"></i></span></div>
+        </div>
+      </section>
+
+      <section class="below-game">
+        <div class="tiny-note"><span class="note-star">✳</span><p>Made for slow mornings, quick breaks,<br />and people who root for the little things.</p></div>
+        <div class="leaderboard">
+          <div class="section-label">THE NEIGHBORHOOD GARDEN <span>✳</span></div>
+          <div id="leaderboard-list" class="leaderboard-list"><span class="empty-board">Plant the first little light.</span></div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span>© LITTLE WORLDS STUDIO</span><span>GROWN WITH A LITTLE PYTHON & A LOT OF STARLIGHT</span><span>TAKE A BREATH. YOU’RE DOING GREAT.</span>
+      </footer>
+    </main>
+    <script src="/static/game.js" defer></script>
+  </body>
+</html>
